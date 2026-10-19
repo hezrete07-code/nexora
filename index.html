@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | Independent Creative House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --card-bg: rgba(15, 23, 36, 0.85);
+            --accent-gold: #c6a052;
+            --accent-teal: #36b3a0;
+            --text-light: #e6e8ec;
+            --text-muted: #8892b0;
+            --border-color: rgba(198, 160, 82, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(54, 179, 160, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(198, 160, 82, 0.08) 0%, transparent 50%);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 14, 23, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent-teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .section {
+            margin-bottom: 90px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--accent-teal);
+        }
+
+        .section-heading {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .hero-badge {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-logo-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: rgba(10, 14, 23, 0.6);
+        }
+
+        .hero-logo-circle::after {
+            content: '';
+            position: absolute;
+            width: 135px;
+            height: 135px;
+            border-radius: 50%;
+            border: 1px dashed var(--accent-teal);
+            opacity: 0.5;
+        }
+
+        .hero-logo-text {
+            font-size: 60px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 13px;
+            letter-spacing: 5px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .hero-tagline {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            display: inline-block;
+            padding: 10px 30px;
+            margin-bottom: 30px;
+        }
+
+        /* About & Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 30px; }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h3 i {
+            color: var(--accent-teal);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .service-box i {
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .service-box h4 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Buttons & Contact */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--text-light);
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(198, 160, 82, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">NEXORA<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">HAQQIMIZDA</a></li>
+            <li><a href="#services">XİDMƏTLƏR</a></li>
+            <li><a href="#founder">TƏSİSÇİ</a></li>
+            <li><a href="#contact">ƏLAQƏ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Section -->
+        <section class="section hero">
+            <div class="hero-badge">INDEPENDENT CREATIVE HOUSE</div>
+            <div class="hero-logo-circle">
+                <span class="hero-logo-text">N</span>
+            </div>
+            <h1>NEXORA</h1>
+            <div class="hero-subtitle">BRAND • DIGITAL • DESIGN</div>
+            <div class="hero-tagline">"IDEAS INTO IDENTITY"</div>
+            <p style="color: var(--text-muted); font-size: 13px; letter-spacing: 2px;">BAKU • AZERBAIJAN — EST. 2026</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-title">HAQQIMIZDA</div>
+            <div class="section-heading">Müasir Brendinq və Rəqəmsal Dizayn Studiyası</div>
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fa-solid fa-compass-drafting"></i> Missiyamız</h3>
+                    <p>NEXORA — ideyaları unikal vizual kimliyə çevirən müstəqil kreativ evdir. Biz brendlərin bazarda seçilməsi və öz dəst-xəttini yaratması üçün lüks, estetik və funksional dizayn həlləri təqdim edirik.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Yaranma Tarixi & Bakı</h3>
+                    <p>2026-cı ildə Bakıda fəaliyyətə başlayan studiyamız korporativ kimlik, qrafik dizayn və rəqəmsal vizual həllər sahəsində peşəkar standartları rəhbər tutur.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="section-title">XİDMƏTLƏRİMİZ</div>
+            <div class="section-heading">Nə ilə Məşğul Oluruq?</div>
+            <div class="services-grid">
+                <div class="service-box">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h4>Brand Identity</h4>
+                    <p>Loqo dizaynı, korporativ üslub, brendbuki və vizual identiklik strategiyası.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <h4>Digital & Print Design</h4>
+                    <p>Lüks vizit kartlar, restoran menyuları, bukletlər və çap məhsulları.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h4>Web & UI/UX Design</h4>
+                    <p>Müasir interaktiv veb-saytlar, rəqəmsal vizitkalar və portfolio platformaları.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder & Contact Section -->
+        <section id="founder" class="section">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="section-title">BRAND DESIGNER</div>
+                    <h2 style="color: #fff; margin-bottom: 10px;">HƏZRƏT ƏHMƏDLİ</h2>
+                    <p style="color: var(--accent-gold); font-size: 13px; margin-bottom: 20px; letter-spacing: 2px;">CREATIVE DIRECTOR & FOUNDER</p>
+                    <p>Brendlərin kimliyini formalaşdıran, estetika və funksionallığı bir araya gətirən dizayn mütəxəssisi.</p>
+                </div>
+
+                <div id="contact" class="card">
+                    <div class="section-title">ƏLAQƏ</div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/994777294111" class="btn" target="_blank">
+                            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp İlə Əlaqə</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="mailto:hezrete07@gmail.com" class="btn">
+                            <span><i class="fa-regular fa-envelope"></i> hezrete07@gmail.com</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="tel:+994777294111" class="btn">
+                            <span><i class="fa-solid fa-phone"></i> +994 77 729 41 11</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        NEXORA INDEPENDENT CREATIVE HOUSE • BAKU, AZERBAIJAN • EST. 2026
+    </footer>
+
+</body>
+</html>
